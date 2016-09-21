@@ -1,0 +1,48 @@
+.btn-group .btn {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.loader {
+  width: 200px;
+  margin: 100px auto;
+  color: $lighter-grey;
+}
+
+.logo {
+  @include icon-sprite('acsi-logo');
+  margin: 30px 0 0 0;
+}
+
+.well.another-file-over-class {
+  background: $light-green;
+}
+
+.another-file-over-class {
+  border: 5px dashed $green;
+}
+
+.panel-heading h4 {
+  margin: 0;
+}
+
+.panel-body.account-info,
+.panel-body.contact-info,
+.panel-body.inspector-info{
+  padding: 5px 15px;
+}
+
+.account-info,
+.contact-info,
+.inspector-info {
+  figure {
+    min-height: 140px;
+  }
+  .table  {
+    margin-bottom: 0;
+    > tbody > tr:first-child > td {
+     border: none;
+    }
+  }
+}
+

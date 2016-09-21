@@ -1,0 +1,137 @@
+.message__item{
+
+  &:after{
+
+    content: "";
+    width: 4px;
+    height: 100%;
+
+  }
+  &.message-type--exception{
+    background: lighten($red, 50%);
+    &:after{
+      background:$red;
+    }
+  }
+  &.message-type--warning{
+    background: lighten($orange, 45%);
+    &:after{
+      background:$orange;
+    }
+  }
+  &.message-type--information{
+    background: lighten($green, 45%);
+    &:after{
+      background: $green;
+    }
+  }
+
+}
+
+.console--progress{
+  color: $lighter-grey;
+}
+.console--success{
+  color: $green;
+}
+.console--warning{
+  color: $orange;
+}
+.console--exception{
+  color: $red;
+}
+
+
+
+.service-status {
+  &.service__not-running{
+    span.service__bubble {
+      background: $light-grey;
+    }
+  }
+  &.service__started-not-running{
+    span.service__bubble {
+      background: darken($green,25);
+    }
+  }
+  &.service__started-and-running{
+    span.service__bubble {
+      background: $green;
+    }
+  }
+  &.service__take-long-time{
+    span.service__bubble {
+      background: $orange;
+    }
+  }
+  &.service__take-very-long-time{
+    span.service__bubble {
+      background: $red;
+    }
+  }
+
+}
+span.service__bubble {
+  width: 20px;
+  height: 20px;
+  display: block;
+  @include border-radius(100%);
+  margin: auto;
+}
+.service__detail{
+  width: calc(100% - 40px);
+}
+
+.detail-information__wrap{
+  padding: 10px;
+  margin-bottom: 15px;
+  height: auto;
+}
+.message__wrap{
+  padding: 10px;
+  margin-bottom: 15px;
+  height: 120px;
+  overflow: auto;
+  &.extra-height{
+    height: 360px;
+  }
+}
+.stacktrace__wrap{
+  padding: 10px;
+  margin-bottom: 15px;
+  height: 230px;
+  overflow: auto;
+}
+.error-popup{
+  font-size: 2em;
+  text-align: center;
+  background: rgba($black,.4);
+  color: $white;
+  display: block;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  @media (min-width: $screen-sm) {
+    padding: 50px;
+    font-size: 3em;
+  }
+}
+.error-message{
+  background: $red;
+  padding: 20px;
+  width: 100%;
+  margin: 50px auto;
+  @media (min-width: $screen-sm) {
+    padding: 50px;
+    margin: 100px auto;
+  }
+}
+.setting-panel{
+  background: $green;
+  padding: 7px 15px;
+  margin-top: -8px;
+}

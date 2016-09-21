@@ -1,11 +1,11 @@
 import { browser, element, by } from 'protractor/globals';
 
-export class B2BPortalStablePage {
+export class B2BportalStablePage {
   navigateTo() {
     return browser.get('/');
   }
 
   getParagraphText() {
-    return element(by.css('cgp-root h1')).getText();
+    return element(by.css('app-root h1')).getText();
   }
 }

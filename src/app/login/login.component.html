@@ -1,3 +1,36 @@
-<p>
-  login works!
-</p>
+<div class="container">
+  <div class="col-md-4 col-md-offset-4">
+
+    <form  *ngIf="active" (ngSubmit)="login()" #loginForm="ngForm">
+      <div class="text-center"><span class="logo"></span>
+        <h2>Log alstublieft in</h2></div>
+      <div class="form-group">
+        <label class="control-label sr-only" for="inputGroupSuccess4">Input group with success</label>
+        <div class="input-group">
+
+          <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+          <input type="text" class="form-control"
+                 [(ngModel)]="user.username"
+                 name="username" #username="ngModel" required>
+          <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+            Username is required
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label sr-only" for="inputGroupSuccess4">Input group with success</label>
+        <div class="input-group">
+
+          <span class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></span>
+          <input type="password" class="form-control"
+                 [(ngModel)]="user.password"
+                 name="password" #password="ngModel" required>
+          <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+            Password is required
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" [disabled]="loginForm.invalid" type="submit">Sign in</button>
+    </form>
+  </div>
+</div>

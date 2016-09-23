@@ -1,25 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, OnChanges} from '@angular/core';
+import {Router} from "@angular/router";
 import {AcsiAuthService} from './';
+
 
 @Component({
   selector: 'cgp-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit ,OnChanges{
 
-  public loggedInUser:string= "Pramod";
+  public loggedInUser: string = "";
 
-  constructor(private authService:AcsiAuthService) { 
-        this.loggedInUser=this.authService.userName;
-  }  
+  constructor(private authService: AcsiAuthService, public router: Router) {
+    this.loggedInUser = this.authService.getCurrentUser();
+  }
+
+  ngOnChanges() {
+    this.loggedInUser = this.authService.getCurrentUser();
+  }
 
   ngOnInit() {
-    this.loggedInUser=this.authService.userName;
+    this.loggedInUser = this.authService.getCurrentUser();
   }
-   
+
   routeIsLogin() {
-      return this.authService.isLoggedIn();
+    return this.authService.isLoggedIn();
+  }
+
+  logout() {
+      this.authService.logout();
+      this.router.navigate(['/login']);
   }
 
 }

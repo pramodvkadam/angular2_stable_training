@@ -2,6 +2,8 @@ import {Component, OnInit, OnChanges} from '@angular/core';
 import {Router} from "@angular/router";
 import {AcsiAuthService} from './';
 
+import { SearchInputComponent } from '../search/search-input.component';
+
 
 @Component({
   selector: 'cgp-header',

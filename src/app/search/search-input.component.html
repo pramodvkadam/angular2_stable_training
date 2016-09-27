@@ -1,3 +1,55 @@
-<p>
-  search-input works!
-</p>
+<div class="header__search-block">
+  <form novalidate class="form-inline" (ngSubmit)="search()" [formGroup]="searchForm">
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <div class="dropdown" dropdown keyboardNav="true">
+            <a id="search-dropdown" dropdownToggle href="">
+              {{searchForm.controls.searchFor.value}} <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" dropdownMenu aria-labelledby="search-dropdown">
+              <li>
+                <input formControlName="searchFor"  value="Campsite" id="campsite" name="searchFor" type="radio">
+                <label for="campsite">Campsite</label>
+              </li>
+              <li>
+                <input  formControlName="searchFor" value="Inspector" id="inspector" name="searchFor" type="radio">
+                <label for="inspector">Inspector</label>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li>
+                <input  formControlName="searchFor" value="Account" id="account" name="searchFor" type="radio">
+                <label for="account">Account</label>
+              </li>
+              <li>
+                <input  formControlName="searchFor" value="Contact" id="contact" name="searchFor" type="radio">
+                <label for="contact">Contact</label>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li>
+                <input  formControlName="searchFor" value="Document" id="document" name="searchFor" type="radio">
+                <label for="document">Document</label>
+              </li>
+              <li>
+                <input  formControlName="searchFor" value="Email" id="email" name="searchFor" type="radio">
+                <label for="email">Email</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error':searchForm.controls.searchBy.errors && searchForm.dirty}">
+          <input type="text" name="searchBy" formControlName="searchBy" class="form-control">
+        </div>
+
+        <div class="input-group-addon" *ngIf="searchForm.controls.searchFor.value === 'Account'">
+          <acsi-account-modal></acsi-account-modal>
+        </div>
+
+        <div class="input-group-addon">
+          <a (click)="search()"><span class="fa fa-search"></span></a>
+          <button type="submit" [disabled]="!searchForm.valid" [hidden]="true"><span class="fa fa-search"></span></button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

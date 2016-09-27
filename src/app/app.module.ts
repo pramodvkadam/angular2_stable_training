@@ -16,6 +16,7 @@ import {AcsiAuthService} from './shared';
 import {AcsiCommonService} from './shared';
 import {AcsiGuardService} from './shared';
 import { SearchModule } from './search/search.module';
+import {SearchInputComponent} from "./search/search-input.component";
 
 const routes: Routes = [
 
@@ -27,7 +28,8 @@ const routes: Routes = [
     AppComponent,
     LoginComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SearchInputComponent
   ],
   imports: [
     BrowserModule,

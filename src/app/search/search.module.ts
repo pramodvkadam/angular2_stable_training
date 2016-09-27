@@ -21,8 +21,7 @@ import { DropdownModule } from 'ng2-bootstrap/ng2-bootstrap';
     searchRouting
   ],
   declarations: [
-    SearchComponent,
-    SearchInputComponent
+    SearchComponent
   ],
   providers: [
     SearchService
